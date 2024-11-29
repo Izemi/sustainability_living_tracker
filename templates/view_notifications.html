@@ -1,0 +1,9 @@
+<h2>Notifications</h2>
+<ul>
+    {% for notification in notifications %}
+    <li>
+        <strong>{{ notification.goal_type }}</strong>: {{ notification.message }}
+    </li>
+    {% endfor %}
+</ul>
+<a href="{{ url_for('dashboard') }}">Back to Dashboard</a>

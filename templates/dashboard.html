@@ -1,0 +1,46 @@
+<div class="container mt-4">
+    <h1 class="text-center text-primary">Welcome to your dashboard, {{ user }}!</h1>
+
+    <div class="mt-5">
+        <h3>Your Goals</h3>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Goal</th>
+                    <th>Progress</th>
+                    <th>Target</th>
+                    <th>Current</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for goal in goals %}
+                <tr>
+                    <td>{{ goal[0] }}</td>
+                    <td>
+                        <div class="progress">
+                            <div class="progress-bar bg-success" role="progressbar" style="width: {{ (goal[2] / goal[1]) * 100 }}%;" aria-valuenow="{{ goal[2] }}" aria-valuemin="0" aria-valuemax="{{ goal[1] }}">
+                                {{ (goal[2] / goal[1]) * 100 | round(1) }}%
+                            </div>
+                        </div>
+                    </td>
+                    <td>{{ goal[1] }}</td>
+                    <td>{{ goal[2] }}</td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="4" class="text-center">No goals set yet. Use the "Set Goals" button to start!</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="mt-4 text-center">
+        <h3>Quick Actions</h3>
+        <div class="d-flex justify-content-center gap-3 mt-3">
+            <a href="/log_activity" class="btn btn-primary">Log Activity</a>
+            <a href="/set_goal" class="btn btn-success">Set a New Goal</a>
+            <a href="/notifications" class="btn btn-info">View Notifications</a>
+        </div>
+    </div>
+</div>

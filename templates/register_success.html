@@ -1,0 +1,5 @@
+<h1>Registration Successful!</h1>
+{% if edu_message %}
+<p>{{ edu_message }}</p>
+{% endif %}
+<a href="{{ url_for('login_web') }}">Go to Login</a>

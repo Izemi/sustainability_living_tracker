@@ -1,0 +1,8 @@
+<form method="POST">
+    <label for="goal_type">Goal Type:</label>
+    <input type="text" id="goal_type" name="goal_type" required>
+    <label for="target_value">Target Value:</label>
+    <input type="number" id="target_value" name="target_value" required>
+    <button type="submit" class="btn btn-primary">Set Goal</button>
+</form>
+<a href="{{ url_for('dashboard') }}">Back to Dashboard</a>

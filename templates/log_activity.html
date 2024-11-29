@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="text-center">
+        <h2>Log Your Activity</h2>
+    </div>
+
+    <form method="POST" class="mt-4">
+        <div class="mb-3">
+            <label for="activity_type" class="form-label">Activity Type</label>
+            <select name="activity_type" id="activity_type" class="form-select" required>
+                {% for activity, points in activities.items() %}
+                    <option value="{{ activity }}">{{ activity }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="date" class="form-label">Date</label>
+            <input type="date" name="date" id="date" class="form-control" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Log Activity</button>
+    </form>
+{% endblock %}
